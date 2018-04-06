@@ -19,7 +19,7 @@ import { listAnimation } from '../animations';
 })
 export class UserlistComponent implements OnInit {
 
-  usersList;
+  usersList:any;
   photoBaseUrl:String;
 
   constructor(
