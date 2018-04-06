@@ -40,9 +40,9 @@ getUsers()
   this.auth.getUsersList().subscribe((data:any) => {
     if(data.success){
       // this.usersList.push(data.users);
-      this.usersList = data.users;
-      console.log(this.usersList);
-      console.log(this.photoBaseUrl);
+      this.usersList = JSON.parse(data.users);
+      // console.log(this.usersList);
+      // console.log(this.photoBaseUrl);
       // console.log(this.usersList.length);      
     }
   })
