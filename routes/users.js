@@ -32,13 +32,13 @@ router.post('/add', function(req, res, next) {
 //Get all users list
 router.get('/userslist', function(req, res, next) {
     controllers.findAllUser({}, (err, data) => {
-        if(err){
-            res.send({
-                success: false,
-                msg: "Something went wrong. Please try again."
+      if(err){
+        res.json({
+            success: false,
+            msg: "Something went wrong. Please try again."
             });
       }else{
-        res.send({
+        res.json({
             success: true,
             users: data
             });
