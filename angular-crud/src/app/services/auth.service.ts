@@ -29,7 +29,7 @@ export class AuthService {
   {
     let header = new HttpHeaders();
     header.set('Content-Type', 'application/json');
-    return this.http.get('users/userslist', {headers: header}).map(res => {return res});
+    return this.http.get('users/userslist', {headers: header, responseType: 'text'}).map(res => {return res});
   }
 
 
