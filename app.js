@@ -17,7 +17,8 @@ var app = express();
 
 //database connection
 mongoose.connect(config.databaseMlab);
-mongoose.Promise = global.Promise;
+
+// mongoose.Promise = global.Promise;
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -30,13 +31,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 
-app.get('*', (req, res)=>{
-  res.sendfile(path.join(__dirname, './public/index.html'));
-});
+// app.get('*', (req, res)=>{
+//   res.sendfile(path.join(__dirname, './public/index.html'));
+// });
 
 
 app.use('/', index);

@@ -19,7 +19,7 @@ export class AuthService {
   {
     let header = new HttpHeaders();
     header.set('Content-Type', 'application/json');
-    return this.http.post('users/add', user, {headers: header, responseType: 'text'}).map(res => {return res});
+    return this.http.post('http://localhost:3000/users/add', user, {headers: header}).map(res => {return res});
   }
   
 
@@ -29,7 +29,7 @@ export class AuthService {
   {
     let header = new HttpHeaders();
     header.set('Content-Type', 'application/json');
-    return this.http.get('users/userslist', {headers: header, responseType: 'text'}).map(res => {return res});
+    return this.http.get('http://localhost:3000/users/userslist', {headers: header}).map(res => {return res});
   }
 
 
@@ -39,7 +39,7 @@ export class AuthService {
   {
     let header = new HttpHeaders();
     header.set('Content-Type', 'application/json');
-    return this.http.delete('users/delete/'+id+'?_method=DELETE', {headers: header, responseType: 'text'}).map(res => {return res});
+    return this.http.delete('http://localhost:3000/users/delete/'+id+'?_method=DELETE', {headers: header}).map(res => {return res});
   }
 
 
@@ -49,7 +49,7 @@ export class AuthService {
   {
     let header = new HttpHeaders();
     header.set('Content-Type', 'application/json');
-    return this.http.get('users/edit/'+id, {headers: header, responseType: 'text'}).map(res => {return res});
+    return this.http.get('http://localhost:3000/users/edit/'+id, {headers: header}).map(res => {return res});
   }
 
 
@@ -59,7 +59,7 @@ export class AuthService {
   {
     let header = new HttpHeaders();
     header.set('Content-Type', 'application/json');
-    return this.http.put('users/update/'+id+'?_method=PUT', user, {headers: header, responseType: 'text'}).map(res => {return res});
+    return this.http.put('http://localhost:3000/users/update/'+id+'?_method=PUT', user, {headers: header}).map(res => {return res});
   }
 
 
@@ -78,9 +78,8 @@ export class AuthService {
   {
     const req = new HttpRequest(
       'POST', 
-      'users/uploadPic/'+id, file, {
-      reportProgress: true,
-      responseType: 'text'
+      'http://localhost:3000/users/uploadPic/'+id, file, {
+      reportProgress: true
     });
   
     return this.http.request(req).map(res => {return res});

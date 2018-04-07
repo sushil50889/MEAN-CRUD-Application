@@ -27,8 +27,8 @@ const appRoutes: Routes = [
   {path:'addUser', component: AdduserComponent},
   {path:'userList', component: UserlistComponent},
   {path:'editUser/:id', component: EdituserComponent},
-  {path:'uploadProfilePic/:id', component: UploadProfilePicComponent}
-  // {path:'**', component: NotfoundComponent}
+  {path:'uploadProfilePic/:id', component: UploadProfilePicComponent},
+  {path:'**', component: NotfoundComponent}
 ];
 
 

@@ -50,7 +50,7 @@ export class EdituserComponent implements OnInit {
         // console.log(this.userValue);
         // return this.name1;
       }else{
-        this.flashMsg.show("Error: "+ foundUser.msg, {cssClass: 'alert alert-danger text-white py-1 px-4 w-50 mx-auto mt-2', timeout: 5000});  
+        this.flashMsg.show("Error: "+ foundUser.msg, {cssClass: 'flashMessageBox', timeout: 5000});  
         this.router.navigate(['/userList']);
       } 
       

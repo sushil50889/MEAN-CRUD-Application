@@ -78,11 +78,11 @@ export class AdduserComponent implements OnInit {
     this.auth.registerUser(newUser).subscribe((data:any) => {
       // console.log(data.success);
       if(data.success){
-        this.flashMsg.show("Success: "+ data.msg, {cssClass: 'alert alert-success text-white py-1 px-4 w-50 mx-auto mt-2', timeout: 6000});
+        this.flashMsg.show("Success: "+ data.msg, {cssClass: 'flashMessageBox', timeout: 6000});
 
         this.router.navigate(['/userList']);
       }else{
-        this.flashMsg.show("Error: "+ data.msg, {cssClass: 'alert alert-danger text-white py-1 px-4 w-50 mx-auto mt-2', timeout: 6000});
+        this.flashMsg.show("Error: "+ data.msg, {cssClass: 'flashMessageBox', timeout: 6000});
 
         this.router.navigate(['/addUser']);
       }

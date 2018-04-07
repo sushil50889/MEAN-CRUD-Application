@@ -9,9 +9,12 @@ var router = express.Router();
 /* ADD users */
 router.post('/add', function(req, res, next) {
   var user = new users(req.body); 
+//   console.log(user); 
 
   controllers.addUser(user, (err, data) => {
       if(err){
+        //   console.log(err);
+          
             res.json({
                 success: false,
                 msg: "Something went wrong. Please try again."
@@ -33,6 +36,7 @@ router.post('/add', function(req, res, next) {
 router.get('/userslist', function(req, res, next) {
     controllers.findAllUser({}, (err, data) => {
       if(err){
+        // console.log(err);
         res.json({
             success: false,
             msg: "Something went wrong. Please try again."
