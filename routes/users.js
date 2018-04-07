@@ -38,7 +38,7 @@ router.get('/userslist', function(req, res, next) {
             msg: "Something went wrong. Please try again."
             });
       }else{
-        res.json(data);
+        res.json({data});
         }
     })
 });

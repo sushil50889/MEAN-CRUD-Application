@@ -40,8 +40,8 @@ getUsers()
   this.auth.getUsersList().subscribe((data:any) => {
     if(data){
       // this.usersList.push(data.users);
-      this.usersList = JSON.parse(data);
-      console.log(this.usersList);
+      this.usersList = data;
+      // console.log(this.usersList);
       // console.log(this.photoBaseUrl);
       // console.log(this.usersList.length);      
     }
