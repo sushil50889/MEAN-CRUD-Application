@@ -9,8 +9,8 @@ controller.addUser = (newUser, callback) => {
     newUser.save(callback);
 }
 
-controller.findAllUser = (queryData, callback) => {
-    users.find(queryData, callback);
+controller.findAllUser = callback => {
+    users.find(callback);
 }
 
 controller.deleteUser = (queryData, callback) => {

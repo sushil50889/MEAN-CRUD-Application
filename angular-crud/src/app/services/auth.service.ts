@@ -13,13 +13,15 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
+
 //add user service
   registerUser(user)
   {
     let header = new HttpHeaders();
     header.set('Content-Type', 'application/json');
-    return this.http.post('users/add', user, {headers: header}).map(res => {return res});
+    return this.http.post('users/add', user, {headers: header, responseType: 'text'}).map(res => {return res});
   }
+  
 
 
 //get user list service
@@ -31,13 +33,15 @@ export class AuthService {
   }
 
 
+
 //delete user service
   delUser(id)
   {
     let header = new HttpHeaders();
     header.set('Content-Type', 'application/json');
-    return this.http.delete('users/delete/'+id+'?_method=DELETE', {headers: header}).map(res => {return res});
+    return this.http.delete('users/delete/'+id+'?_method=DELETE', {headers: header, responseType: 'text'}).map(res => {return res});
   }
+
 
 
 //edit user service
@@ -45,38 +49,46 @@ export class AuthService {
   {
     let header = new HttpHeaders();
     header.set('Content-Type', 'application/json');
-    return this.http.get('users/edit/'+id, {headers: header}).map(res => {return res});
+    return this.http.get('users/edit/'+id, {headers: header, responseType: 'text'}).map(res => {return res});
   }
 
 
-  //update user service
+
+//update user service
   updateUserService(id, user)
   {
     let header = new HttpHeaders();
     header.set('Content-Type', 'application/json');
-    return this.http.put('users/update/'+id+'?_method=PUT', user, {headers: header}).map(res => {return res});
+    return this.http.put('users/update/'+id+'?_method=PUT', user, {headers: header, responseType: 'text'}).map(res => {return res});
   }
 
 
-  //String to number
+
+//String to number
   extractNumFromStr(str)
   {
     var  num = str.replace( /[^\d.]/g, '' );   
     return num;
   }
 
-  //upload Picture service
+
+
+//upload Picture service
   uploadProfilePic(id, file)
   {
     const req = new HttpRequest(
       'POST', 
       'users/uploadPic/'+id, file, {
-      reportProgress: true
+      reportProgress: true,
+      responseType: 'text'
     });
   
     return this.http.request(req).map(res => {return res});
   }
 
+
+
+//get extension from image type  
   getExtension(type)
   {
     var ext = type.substring(type.lastIndexOf('/')+1, type.length);
