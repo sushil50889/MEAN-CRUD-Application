@@ -11,13 +11,11 @@ dob:   {
 },            
 email: {
         type: String,
-        unique: true,
         lowercase: true,
         trim: true
 },
 phone: {
         type: String,
-        unique: true,
         trim: true
 },     
 city: {

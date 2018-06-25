@@ -26,7 +26,7 @@ controller.updateUser = (query, data, callback) => {
 }
 
 controller.storage = multer.diskStorage({
-    destination: './angular-crud/src/assets/images',
+    destination: './public/images',
     filename: function(req, file, cb){
       cb(null, file.fieldname + req.params.id + path.extname(file.originalname));
     }
@@ -61,7 +61,7 @@ controller.delProfilePic = (id) => {
     }else{
       // console.log(data.avatar);
       try{
-        fs.unlinkSync('./angular-crud/src/assets/images/'+data.avatar);
+        fs.unlinkSync('/public/images/'+data.avatar);
       }catch(error){
         console.log(error);
       }      

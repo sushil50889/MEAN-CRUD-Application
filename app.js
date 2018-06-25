@@ -21,27 +21,32 @@ mongoose.connect(config.databaseMlab);
 // mongoose.Promise = global.Promise;
 
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(express.static(path.join(__dirname, 'angular-crud', 'src', 'assets', 'images')));
 app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'angular-crud')));
+app.use(express.static(path.join(__dirname, 'public', 'images')));
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use(methodOverride('_method'));
 
 
-// app.get('*', (req, res)=>{
-//   res.sendfile(path.join(__dirname, './public/index.html'));
-// });
+
 
 
 app.use('/', index);
 app.use('/users', users);
+
+app.get('*', (req, res, next)=>{
+  res.sendfile(path.join(__dirname, '/dist/index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
