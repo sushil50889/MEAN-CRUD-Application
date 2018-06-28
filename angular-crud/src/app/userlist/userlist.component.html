@@ -1,0 +1,50 @@
+<div class="container" [@listAnimation]="usersList?.length">
+  <h1 class="h1 text-center mt-4" id="sectionHead">Users List</h1>
+
+  <div *ngFor = "let user of usersList | paginate: { itemsPerPage: 4, currentPage: p}">
+    <div class="row mb-2 mx-auto" id="showUserList">
+
+      <div class="col-sm-2 p-0 text-center">
+        
+        <img *ngIf="!user.avatar == ''" src="https://www.malibro.com/Malibro/resources/images/default/users/male.png" class="img-thumbnail" alt="user image" id="profilePic1">
+        <img *ngIf="user.avatar == ''" src="https://www.malibro.com/Malibro/resources/images/default/users/male.png" class="img-thumbnail" alt="user image" id="profilePic2">
+        <!-- <div class="overlay">
+          <p class="addPicText" routerLink="/uploadProfilePic/{{user._id}}">
+            <i class="far fa-user addPhIcon"></i>
+            <br> 
+            Update
+          </p>
+        </div> -->
+      </div>
+
+      <div class="col-sm-7">
+        <div class="card-body py-0">
+          <h5 class="card-title text-capitalize my-0 pt-1">{{user.name}}</h5>
+          <p class="card-text text-muted p-0 m-0 font-sm">Email : {{user.email}}</p>
+          <p class="card-text text-muted p-0 m-0 font-sm">Phone : {{user.phone}}</p>
+          <p class="card-text text-muted p-0 m-0 text-capitalize font-sm">Active : {{user.active}}</p>         
+        </div>
+      </div>
+
+      <div class="col-sm-3 pr-0 mr-0">
+        <div class="w-75 mx-auto mt-2 text-uppercase">
+          <p 
+            routerLink="/editUser/{{user._id}}" 
+            class="btn btn-outline-primary btn-block btnStyleSuccess font-xs m-0 p-1 mb-1">
+            <i class="far fa-edit"></i> 
+            Update
+          </p>
+          <p 
+            (click)="openConfDialog(user._id)" 
+            class="btn btn-outline-primary btn-block btnStyleDanger font-xs m-0 p-1">
+            <i class="far fa-trash-alt"></i> 
+            Delete
+          </p>
+        </div>        
+      </div>
+    </div>
+  </div> 
+  <div class="text-center text-white mt-4">
+    <pagination-controls class="userListPagination" (pageChange)="p =$event"></pagination-controls>
+  </div>
+</div>  
